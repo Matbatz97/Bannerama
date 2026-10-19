@@ -469,3 +469,35 @@ renderSummary();
   }
   update();
 })();
+
+// "Build your banner." heading: the banner unrolls as you scroll
+(() => {
+  const title = document.getElementById('buildTitle');
+  if (!title) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sheet = title.querySelector('.roll-sheet');
+  const text = title.querySelector('.roll-text');
+  title.classList.add('roll-ready');
+
+  const START = 0.92; // heading top at 92% of the viewport height: start unrolling
+  const END = 0.40;   // heading top at 40%: fully unrolled
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight;
+    const top = title.getBoundingClientRect().top;
+    const p = Math.min(1, Math.max(0, (vh * START - top) / (vh * (START - END))));
+    const width = sheet.offsetWidth;
+    const edge = p * width;
+    title.style.setProperty('--edge', edge + 'px');
+    title.style.setProperty('--text-edge', (edge - text.offsetLeft) + 'px');
+    title.classList.toggle('roll-done', p >= 1);
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();

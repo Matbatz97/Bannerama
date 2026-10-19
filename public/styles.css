@@ -537,3 +537,282 @@ input:focus, textarea:focus { outline: none; border-color: var(--purple); backgr
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ==========================================================================
+   BOLD PASS
+   Bigger type, thick ink outlines and hard "sticker" shadows.
+   Delete everything below this line to go back to the previous, softer look.
+   ========================================================================== */
+:root {
+  --muted: #2a2768;            /* darker body copy for punchier contrast */
+  --line: var(--ink);
+  --stroke: 3px solid var(--ink);
+  --pop: 8px 8px 0 var(--ink);
+  --pop-lg: 12px 12px 0 var(--ink);
+}
+body { overflow-x: clip; }
+
+/* Type: bigger, tighter */
+.hero h1 { font-size: clamp(4.2rem, 11vw, 10.5rem); line-height: .84; letter-spacing: -.01em; }
+.hero h1::after { content: ''; display: block; width: 120px; height: 12px; background: var(--purple); margin-top: 1.4rem; }
+.section-head h2 { font-size: clamp(3rem, 7vw, 6rem); line-height: .88; }
+.statement h2, .cta h2 { font-size: clamp(3.6rem, 9vw, 8rem); line-height: .86; }
+.scrub h2 { font-size: clamp(3.4rem, 8.5vw, 8rem); line-height: .86; }
+.callout-copy h2 { font-size: clamp(3rem, 6.4vw, 5.4rem); line-height: .88; }
+.lede { color: var(--ink); font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
+
+/* Kickers become solid labels */
+.kicker {
+  display: inline-block; background: var(--ink); color: var(--yellow);
+  padding: .45em .8em .35em; border-radius: 6px; letter-spacing: .14em; transform: rotate(-1.5deg);
+}
+.scrub .kicker, .section-head.on-dark .kicker { background: var(--yellow); color: var(--ink); }
+.statement .kicker, .cta .kicker { background: var(--yellow); color: var(--ink); }
+
+/* Buttons: outlined, hard shadow, press-down on click */
+.btn {
+  border: var(--stroke); border-radius: 12px; text-transform: uppercase; letter-spacing: .06em;
+  font-size: 1.1rem; padding: 1em 1.7em; box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-sm { font-size: .95rem; padding: .7em 1.1em; box-shadow: 3px 3px 0 var(--ink); }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+.btn-purple, .btn-yellow { box-shadow: 5px 5px 0 var(--ink); }
+.btn-outline:hover { background: var(--yellow); color: var(--ink); }
+.cta .btn, .process .btn, .summary .btn-yellow { box-shadow: 5px 5px 0 #000; }
+
+/* Header */
+.nav { border-bottom-width: 4px; }
+.wordmark { font-size: 2.4rem; }
+.nav-links { font-size: 1.25rem; }
+.nav-links a:hover { border-bottom-width: 3px; }
+
+/* Hero art */
+.hero-svg { border: 4px solid var(--ink); box-shadow: 16px 16px 0 var(--purple), 16px 16px 0 4px var(--ink); }
+.hero-badge {
+  width: 132px; height: 132px; background: var(--purple); color: var(--yellow);
+  border-width: 4px; box-shadow: 6px 6px 0 var(--ink);
+}
+.hero-badge b { font-size: 3.4rem; }
+.hero-points { font-size: 1.05rem; }
+.hero-points li::before { background: var(--purple); }
+
+/* Marquee: thicker and tilted like a strip of banner tape */
+.marquee {
+  background: var(--purple); border-block: 4px solid var(--ink);
+  transform: rotate(-1.6deg) scale(1.04); margin: 1.5rem 0; position: relative; z-index: 2;
+}
+.marquee span { font-size: clamp(2rem, 3.4vw, 3rem); padding: 1rem 1.6rem; }
+
+/* Cards: thick outline + offset shadow */
+.product, .step, .guide-grid > div, .finish-card, .price-card, .success, .quick {
+  border: var(--stroke); box-shadow: var(--pop);
+}
+.product:hover, .guide-grid > div:hover, .finish-card:hover {
+  transform: translate(-3px, -3px); box-shadow: var(--pop-lg);
+}
+.guide-grid > div, .finish-card { transition: transform .2s ease, box-shadow .2s ease; }
+.guide-grid > div { border-top-width: 10px; }
+.product h3 { font-size: 2.4rem; }
+.product-art { border: var(--stroke); }
+.product-foot b { font-size: 2.1rem; }
+.sector-art { border: var(--stroke); box-shadow: var(--pop); border-radius: 8px; transition: transform .2s ease, box-shadow .2s ease; }
+.sector:hover .sector-art { transform: translate(-3px, -3px) rotate(-1deg); box-shadow: var(--pop-lg); }
+.sector h3 { font-size: 2.3rem; }
+.callout-art { border: 4px solid var(--ink); box-shadow: var(--pop-lg); }
+.summary-card { border: 4px solid var(--ink); box-shadow: 10px 10px 0 var(--purple); }
+.step legend { font-size: 2rem; }
+.num { font-size: .95rem; border: 2px solid var(--ink); }
+.tile > span { border-width: 3px; }
+.tile input:checked + span { box-shadow: 4px 4px 0 var(--ink); }
+
+/* Dark and purple bands */
+.statement h2::after { width: 120px; height: 12px; }
+.statement p, .cta-side p { font-size: 1.3rem; }
+.statement, .cta { border-block: 4px solid var(--ink); }
+.scrub-frame { box-shadow: 0 0 0 6px var(--purple), 18px 18px 0 6px var(--yellow); }
+.scrub-stages b { font-size: 1.9rem; }
+.pnum { font-size: 4.4rem; }
+.process-steps b { font-size: 2.2rem; }
+.cta-line { font-size: clamp(2.4rem, 4vw, 3.4rem); }
+
+/* Stats */
+.stats div { border-top-width: 8px; }
+.stats b { font-size: clamp(3rem, 5.4vw, 4.6rem); }
+.stats span { font-size: 1rem; }
+
+/* Footer */
+.footer { border-top: 6px solid var(--yellow); }
+.footer h4 { font-size: 1.6rem; }
+
+/* Keep the bold layer comfortable on small screens */
+@media (max-width: 860px) {
+  .hero-badge { width: 100px; height: 100px; }
+  .hero-badge b { font-size: 2.6rem; }
+  .hero-svg { box-shadow: 10px 10px 0 var(--purple), 10px 10px 0 4px var(--ink); }
+  .scrub h2 { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+}
+@media (max-width: 600px) {
+  :root { --pop: 5px 5px 0 var(--ink); --pop-lg: 7px 7px 0 var(--ink); }
+  .wordmark { font-size: 1.9rem; }
+  .btn { font-size: 1rem; }
+}
+
+/* ==========================================================================
+   HERO HEADLINE ANIMATION
+   Words pop up one by one, "Bigger" gets a purple highlighter swipe,
+   then the underline bar draws in. Final state is the default, so
+   reduced-motion users simply see the finished headline.
+   ========================================================================== */
+.hero-title .line { display: block; }
+.hero-title .word {
+  display: inline-block; transform-origin: 0 100%;
+  animation: word-pop .8s cubic-bezier(.2, 1.4, .4, 1) backwards;
+  animation-delay: calc(.15s + var(--i, 0) * .14s);
+  transition: transform .25s cubic-bezier(.2, 1.6, .4, 1), color .2s ease;
+}
+@keyframes word-pop {
+  0%   { opacity: 0; transform: translateY(.55em) rotate(7deg) scale(.9); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: none; }
+}
+
+/* "Bigger": highlighter swipe behind the word */
+.hero-title .hl { position: relative; z-index: 0; color: var(--yellow); padding: 0 .08em; margin: 0 -.08em; }
+.hero-title .hl::before {
+  content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: .02em; bottom: -.04em;
+  background: var(--purple); border: 4px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-2deg); transform-origin: left center;
+  animation: hl-swipe .55s cubic-bezier(.7, 0, .2, 1) backwards; animation-delay: .95s;
+}
+.hero-title .hl { animation-name: word-pop, hl-text; animation-duration: .8s, .3s; animation-delay: .43s, 1.1s; animation-fill-mode: backwards, backwards; }
+@keyframes hl-swipe { from { transform: rotate(-2deg) scaleX(0); } to { transform: rotate(-2deg) scaleX(1); } }
+@keyframes hl-text { from { color: var(--ink); } to { color: var(--yellow); } }
+
+/* Underline bar draws in last */
+.hero-title::after { transform-origin: left center; animation: bar-draw .5s cubic-bezier(.7, 0, .2, 1) backwards; animation-delay: 1.45s; }
+@keyframes bar-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Playful hover: each word hops when you point at it */
+@media (hover: hover) {
+  .hero-title .word:hover { transform: translateY(-.08em) rotate(-3deg); color: var(--purple); }
+  .hero-title .hl:hover { color: var(--yellow); transform: translateY(-.08em) rotate(2deg) scale(1.04); }
+}
+
+/* ==========================================================================
+   "BUILD YOUR BANNER." ROLL-OUT
+   A purple eyeleted banner unrolls from a tube behind the heading when it
+   scrolls into view (JS adds .roll-ready, then .is-in). Without JS or with
+   reduced motion, the finished banner is simply shown.
+   ========================================================================== */
+.section-head .roll-title {
+  position: relative; z-index: 0; display: inline-block;
+  padding: .32em .55em .26em; margin: .15em 0 .2em; color: var(--yellow);
+}
+.roll-wrap { position: absolute; inset: 0; z-index: -1; transform: rotate(-1.5deg); transform-origin: left center; }
+.roll-sheet {
+  position: absolute; inset: 0; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink);
+  background:
+    radial-gradient(circle, var(--neutral) 3px, #b8913a 3.5px 6px, var(--ink) 6.5px 7.5px, transparent 8px) 14px 4px / 56px 18px repeat-x,
+    radial-gradient(circle, var(--neutral) 3px, #b8913a 3.5px 6px, var(--ink) 6.5px 7.5px, transparent 8px) 14px calc(100% - 4px) / 56px 18px repeat-x,
+    var(--purple);
+}
+.roll-tube {
+  position: absolute; top: -12px; bottom: -12px; left: 100%; width: 28px; margin-left: -14px;
+  border: 3px solid var(--ink); border-radius: 14px; opacity: 0;
+  background: linear-gradient(90deg, #3a0090 0%, #9a4dff 35%, #6A00FF 60%, #3a0090 100%);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.roll-text { position: relative; display: inline-block; }
+
+/* Scroll-driven: JS sets --edge (how far the banner has unrolled, in px)
+   and --text-edge (the same edge measured from the text's left side). */
+.roll-ready .roll-sheet { clip-path: inset(-14px calc(100% - var(--edge, 0px)) -14px -14px); }
+.roll-ready .roll-text  { clip-path: inset(-.3em calc(100% - var(--text-edge, 0px)) -.3em -.3em); }
+.roll-ready .roll-tube  { left: var(--edge, 0px); opacity: 1; transition: opacity .25s ease, transform .25s ease; }
+
+/* Fully unrolled: drop the clips, tuck the tube away, little settle + pop */
+.roll-ready.roll-done .roll-sheet,
+.roll-ready.roll-done .roll-text { clip-path: none; }
+.roll-ready.roll-done .roll-tube { opacity: 0; transform: scale(.3, .6); }
+.roll-ready.roll-done .roll-wrap { animation: roll-settle .9s ease-in-out; }
+.roll-ready.roll-done .roll-text { animation: roll-pop .45s cubic-bezier(.2, 1.6, .4, 1); }
+
+@keyframes roll-pop { 50% { transform: scale(1.06) rotate(-1deg); } }
+@keyframes roll-settle {
+  0%, 100% { transform: rotate(-1.5deg); }
+  30%      { transform: rotate(-3deg) skewX(-2deg); }
+  60%      { transform: rotate(-.5deg) skewX(1deg); }
+}
+
+@media (max-width: 600px) {
+  .section-head .roll-title { padding: .36em .45em .3em; }
+  .roll-tube { width: 20px; margin-left: -10px; top: -8px; bottom: -8px; }
+  .roll-sheet { box-shadow: 5px 5px 0 var(--ink); }
+}
+
+/* ==========================================================================
+   "BANNERS FOR EVERY PLACE." TYPOGRAPHY EFFECT (products page)
+   Letters drop in one by one, then a slot-machine reel spins through
+   places and lands on "place." with a chunky extruded shadow.
+   ========================================================================== */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.page-hero .type-title { font-size: clamp(4.2rem, 11vw, 10rem); line-height: 1; }
+.type-line { display: block; line-height: 1em; }
+.type-line + .type-line { margin-top: -.06em; }
+.type-title .w { display: inline-block; white-space: nowrap; }
+
+/* 1. Letter drop */
+.type-title .ch {
+  display: inline-block; transform-origin: 50% 100%;
+  animation: ch-drop .65s cubic-bezier(.2, 1.5, .4, 1) backwards;
+  animation-delay: calc(.1s + var(--i) * .04s);
+  transition: transform .2s cubic-bezier(.2, 1.6, .4, 1), color .15s ease;
+}
+@keyframes ch-drop {
+  0%  { opacity: 0; transform: translateY(-.7em) rotate(-14deg); }
+  50% { opacity: 1; }
+}
+@media (hover: hover) {
+  .type-title .ch:hover { transform: translateY(-.12em) rotate(-6deg); color: var(--purple); }
+}
+
+/* 2. Slot-machine reel: one word per 1em row, final row is the default */
+.type-title .slot {
+  display: inline-block; vertical-align: top; height: 1em; position: relative;
+  clip-path: inset(0 -.3em -.14em -.05em); /* room for the extruded shadow */
+}
+.slot-reel {
+  display: block; color: var(--purple);
+  transform: translateY(-5em);
+  animation: slot-spin 3.2s cubic-bezier(.45, 0, .2, 1) .85s backwards;
+}
+.slot-reel > span { display: block; height: 1em; line-height: 1em; white-space: nowrap; }
+@keyframes slot-spin {
+  0%, 8%    { transform: translateY(0); }
+  16%, 26%  { transform: translateY(-1em); }
+  34%, 44%  { transform: translateY(-2em); }
+  52%, 62%  { transform: translateY(-3em); }
+  70%, 80%  { transform: translateY(-4em); }
+  90%       { transform: translateY(-5.12em); }
+  95%       { transform: translateY(-4.96em); }
+  100%      { transform: translateY(-5em); }
+}
+
+/* 3. Land on "place." with a chunky 3D extrude */
+.slot-final {
+  text-shadow: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink), 6px 6px 0 var(--ink), 8px 8px 0 var(--ink);
+  animation: slot-land .5s cubic-bezier(.2, 1.6, .4, 1) 3.75s backwards;
+  transform-origin: 0 100%;
+}
+@keyframes slot-land {
+  0%  { text-shadow: none; transform: none; }
+  45% { transform: translate(-4px, -4px) scale(1.04); }
+}
+
+@media (max-width: 600px) {
+  .slot-final { text-shadow: 1px 1px 0 var(--ink), 2px 2px 0 var(--ink), 3px 3px 0 var(--ink), 4px 4px 0 var(--ink); }
+}
