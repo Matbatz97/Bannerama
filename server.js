@@ -9,8 +9,11 @@ const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 3001;
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const UPLOAD_DIR = path.join(__dirname, 'uploads');
-const DATA_DIR = path.join(__dirname, 'data');
+// Vercel's project folder is read-only, so files go to its scratch space there.
+// That space is wiped between requests: it keeps the site up but doesn't keep uploads or orders.
+const STORAGE_ROOT = process.env.VERCEL ? '/tmp/bannerama' : __dirname;
+const UPLOAD_DIR = path.join(STORAGE_ROOT, 'uploads');
+const DATA_DIR = path.join(STORAGE_ROOT, 'data');
 const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
 
 const MAX_UPLOAD_BYTES = 250 * 1024 * 1024; // 250 MB, large-format PDFs get big
@@ -257,6 +260,6 @@ const server = http.createServer(async (req, res) => {
 
 initializeData();
 
-server.listen(PORT, '127.0.0.1', () => {
+server.listen(PORT, process.env.VERCEL ? undefined : '127.0.0.1', () => {
   console.log(`Bannerama is running at http://localhost:${PORT}`);
 });
