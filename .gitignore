@@ -1,0 +1,7 @@
+# Customer artwork and orders stay on the server, never in git
+uploads/
+data/
+
+node_modules/
+.DS_Store
+.env*

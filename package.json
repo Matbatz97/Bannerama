@@ -1,0 +1,16 @@
+{
+  "name": "bannerama",
+  "version": "1.0.0",
+  "description": "Bannerama banner printing website: PVC, mesh and roller banners with artwork upload",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
