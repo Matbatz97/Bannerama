@@ -41,7 +41,16 @@
     <div class="nav-inner">
       <a href="/" class="wordmark" aria-label="Bannerama home">BAN<svg class="fold-n" aria-hidden="true"><use href="#fold-n"/></svg>ERAMA<sup>™</sup></a>
       <nav class="nav-links" id="navLinks" aria-label="Main">
-        <a href="products.html" aria-current="page">Products</a>
+        <div class="nav-drop">
+          <a href="products.html" class="drop-parent is-section" aria-current="page">Products</a>
+          <button type="button" class="drop-toggle" aria-expanded="false" aria-controls="productsMenu" aria-label="Show banner types"><span aria-hidden="true">▾</span></button>
+          <div class="drop-menu" id="productsMenu">
+            <a href="pvc-banners.html"><b>PVC banners</b><small>Heavy-duty, indoor and outdoor</small></a>
+            <a href="mesh-banners.html"><b>Mesh banners</b><small>Wind-through, for scaffolding</small></a>
+            <a href="roller-banners.html"><b>Roller banners</b><small>Pull-up displays</small></a>
+            <a href="products.html#prices" class="drop-all">Compare all &amp; price list →</a>
+          </div>
+        </div>
         <a href="sectors.html">Sectors</a>
         <a href="how-it-works.html">How it works</a>
         <a href="artwork-help.html">Artwork help</a>
@@ -110,6 +119,7 @@
       <div class="pdetail-copy">
         <p class="kicker">The all-rounder</p>
         <h2>PVC banners</h2>
+        <a href="pvc-banners.html" class="text-link page-link">Full details on pvc banners <span aria-hidden="true">→</span></a>
         <p>Heavy-duty 440gsm PVC that's waterproof, tear-resistant and stays bright. Use it for shopfronts, events, fences and railings, indoors or out.</p>
         <dl class="spec-list">
           <div><dt>Material</dt><dd>440gsm PVC, matt finish</dd></div>
@@ -168,6 +178,7 @@
       <div class="pdetail-copy">
         <p class="kicker">Built for the wind</p>
         <h2>Mesh banners</h2>
+        <a href="mesh-banners.html" class="text-link page-link">Full details on mesh banners <span aria-hidden="true">→</span></a>
         <p>Perforated mesh lets the wind pass straight through, so the banner stays put on scaffolding, building wraps and exposed fences without acting like a sail.</p>
         <dl class="spec-list">
           <div><dt>Material</dt><dd>Heavy-duty polyester mesh, about 30% open</dd></div>
@@ -226,6 +237,7 @@
       <div class="pdetail-copy">
         <p class="kicker">Up in 30 seconds</p>
         <h2>Roller banners</h2>
+        <a href="roller-banners.html" class="text-link page-link">Full details on roller banners <span aria-hidden="true">→</span></a>
         <p>A pull-up display that arrives printed and fitted in its stand. Pull it up, clip the top pole in place and you're done. Packs into its carry bag for the next event.</p>
         <dl class="spec-list">
           <div><dt>Sizes</dt><dd>85 × 200cm, 100 × 200cm or 120 × 200cm</dd></div>
@@ -321,7 +333,7 @@
       </div>
       <div>
         <h4>Products</h4>
-        <ul><li><a href="/?type=pvc#order">PVC banners</a></li><li><a href="/?type=mesh#order">Mesh banners</a></li><li><a href="/?type=roller#order">Roller banners</a></li></ul>
+        <ul><li><a href="pvc-banners.html">PVC banners</a></li><li><a href="mesh-banners.html">Mesh banners</a></li><li><a href="roller-banners.html">Roller banners</a></li></ul>
       </div>
       <div>
         <h4>Help</h4>
@@ -338,6 +350,7 @@
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script src="pricing.js"></script>
   <script src="products.js"></script>
 </body>

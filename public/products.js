@@ -176,6 +176,7 @@ function setupPanel(panel) {
 
 // --- Price list tables ---
 function renderPriceList() {
+  if (!document.querySelector('[data-rates]')) return;
   const P = PRICING;
   const set = (sel, html) => { document.querySelector(sel).innerHTML = html; };
   const tr = cells => `<tr>${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
@@ -207,24 +208,45 @@ function renderPriceList() {
 }
 
 const renderers = [...document.querySelectorAll('.quick')].map(setupPanel);
+// Popular sizes table on each banner's own page
+function renderSizeTables() {
+  const tr = cells => `<tr>${cells.map(c => `<td>${c}</td>`).join('')}</tr>`;
+  document.querySelectorAll('[data-size-table]').forEach(tbody => {
+    const type = tbody.dataset.sizeTable;
+    if (type === 'roller') {
+      tbody.innerHTML = Object.keys(PRICING.roller.sizes).map(size => {
+        const r = priceBanner(PRICING, { type, size, stand: 'standard' });
+        const [w, h] = size.split('x').map(mm => mm / 10);
+        return tr([`${w} × ${h}cm`, fmtSqm(r.area), `<b>${gbp(r.unit)}</b>`, gbp(r.total), `${gbp(r.rate)} per m²`]);
+      }).join('');
+      return;
+    }
+    const sizes = [[100, 50], [200, 100], [300, 100], [400, 100], [300, 150], [600, 200], [1000, 200]];
+    tbody.innerHTML = sizes.map(([w, h]) => {
+      const r = priceBanner(PRICING, { type, widthCm: w, heightCm: h, finishing: 'eyelets' });
+      return tr([`${fmtM(w)} × ${fmtM(h)}`, fmtSqm(r.area), `<b>${gbp(r.unit)}</b>`, gbp(r.total), r.minApplied ? 'Minimum order' : `${gbp(r.rate)} per m²`]);
+    }).join('');
+  });
+}
+
+// Headline prices like "£14 per m²"
+function renderFromPrices() {
+  document.querySelectorAll('[data-from]').forEach(el => {
+    const t = el.dataset.from;
+    el.textContent = t === 'roller' ? '£' + Math.min(...Object.values(PRICING.roller.sizes)) : '£' + PRICING[t].perSqm;
+  });
+}
+
 function renderAll() {
   renderers.forEach(fn => fn());
   renderPriceList();
+  renderSizeTables();
+  renderFromPrices();
 }
 
 // Live prices from the server
 fetch('/api/pricing').then(r => r.ok ? r.json() : null).then(p => {
   if (p) { PRICING = p; renderAll(); }
 }).catch(() => {});
-
-// Mobile menu and footer year
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-menuBtn.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', open);
-  menuBtn.textContent = open ? 'Close' : 'Menu';
-});
-document.getElementById('year').textContent = new Date().getFullYear();
 
 renderAll();

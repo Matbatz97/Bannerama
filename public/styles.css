@@ -898,3 +898,68 @@ select:focus { outline: none; border-color: var(--purple); background: var(--whi
   .sector-cards, .timeline { grid-template-columns: 1fr; }
   .timeline li::after { display: none; }
 }
+
+/* ==========================================================================
+   Products dropdown and the individual banner pages
+   ========================================================================== */
+.nav-drop { position: relative; display: flex; align-items: center; gap: .1rem; }
+.drop-parent.is-section { color: var(--purple); border-color: var(--purple); }
+.drop-toggle { background: none; border: 0; padding: .2rem .3rem; cursor: pointer; color: var(--ink); font: inherit; font-size: 1rem; line-height: 1; transition: transform .2s; }
+.nav-drop:hover .drop-toggle, .nav-drop.open .drop-toggle { transform: rotate(180deg); }
+.drop-menu {
+  position: absolute; top: 100%; left: -1rem; z-index: 40; min-width: 290px;
+  display: grid; gap: .25rem; padding: .6rem; margin-top: .6rem;
+  background: var(--white); border: var(--stroke); border-radius: 14px; box-shadow: var(--pop);
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .15s, transform .15s, visibility .15s;
+}
+.drop-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -1.2rem; height: 1.2rem; } /* keeps hover alive across the gap */
+.nav-drop:hover .drop-menu, .nav-drop:focus-within .drop-menu, .nav-drop.open .drop-menu { opacity: 1; visibility: visible; transform: none; }
+.nav-links .drop-menu a { display: grid; gap: .1rem; padding: .7rem .8rem; border-radius: 10px; border: 0; text-transform: none; letter-spacing: .02em; }
+.nav-links .drop-menu a b { font-weight: 400; font-size: 1.25rem; text-transform: uppercase; }
+.nav-links .drop-menu a small { font-size: .9rem; color: var(--muted); }
+.nav-links .drop-menu a:hover, .nav-links .drop-menu a[aria-current="page"] { background: var(--yellow); color: var(--ink); }
+.nav-links .drop-menu .drop-all { margin-top: .2rem; border-top: 2px solid var(--ink); border-radius: 0 0 10px 10px; font-size: 1rem; text-transform: uppercase; color: var(--purple); }
+
+/* Banner pages */
+.crumbs { margin-bottom: 1.2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; }
+.crumbs a { color: var(--purple); }
+.product-hero-grid { display: grid; grid-template-columns: 1.4fr auto; gap: clamp(24px, 5vw, 72px); align-items: center; }
+.why { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 760px; }
+.why li { display: grid; gap: .2rem; padding-top: .8rem; border-top: 4px solid var(--purple); }
+.why b { font: 400 1.4rem/1 var(--display); text-transform: uppercase; }
+.why span { color: var(--muted); font-size: 1rem; }
+.price-badge {
+  display: grid; justify-items: center; align-content: center; text-align: center; gap: .2rem;
+  width: clamp(220px, 24vw, 300px); aspect-ratio: 1; border-radius: 50%;
+  background: var(--purple); color: var(--white); text-decoration: none;
+  border: 4px solid var(--ink); box-shadow: var(--pop-lg); transform: rotate(-6deg); transition: transform .2s;
+}
+.price-badge:hover { transform: rotate(0deg) scale(1.03); }
+.price-badge span { font-size: 1.3rem; text-transform: uppercase; letter-spacing: .06em; }
+.price-badge b { font: 400 clamp(4rem, 7vw, 6rem)/.9 var(--display); color: var(--yellow); }
+.price-badge small { margin-top: .4rem; font-size: .95rem; color: #e8deff; }
+.calc-wrap { display: grid; }
+.spec-art { aspect-ratio: 1.15; }
+.spec-title { font-size: clamp(2.6rem, 5vw, 4rem); margin-bottom: .5rem; }
+.page-link { display: inline-block; margin-bottom: 1rem; font-size: 1.1rem; }
+
+@media (max-width: 860px) {
+  /* Inside the open mobile menu, the banner types are listed under Products */
+  .nav-drop { flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+  .nav-drop .drop-parent { flex: 1; border-bottom: 0; }
+  .drop-toggle { display: none; }
+  .drop-menu { position: static; opacity: 1; visibility: visible; transform: none; width: 100%; min-width: 0; margin: 0 0 .6rem; padding: 0 0 0 1rem; background: none; border: 0; box-shadow: none; }
+  .drop-menu::before { display: none; }
+  .nav-links .drop-menu a { padding: .5rem 0; }
+  .nav-links .drop-menu a small { display: none; }
+  .nav-links .drop-menu .drop-all { border-top: 0; }
+  .product-hero-grid { grid-template-columns: 1fr; }
+  .price-badge { justify-self: start; width: 200px; }
+  .why { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  /* Keep the Menu/Close button on the top row when the menu opens */
+  .nav-inner .wordmark { order: 1; }
+  .menu-btn { order: 2; }
+  .nav-links { order: 3; }
+}

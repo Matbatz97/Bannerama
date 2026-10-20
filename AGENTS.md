@@ -21,7 +21,10 @@ No dependencies and no build step. Plain HTML, CSS and JavaScript plus one Node 
 | `public/index.html` | Homepage: hero, scroll video, statement, order form (`#order`), sectors, process, callout, artwork guide, contact |
 | `public/app.js` | Homepage logic: order form, live price, artwork upload and checks, URL prefill, mobile menu, scroll video |
 | `public/products.html` | Products page: price list (`#prices`), one section per banner type (`#pvc`, `#mesh`, `#roller`), each with an order panel |
-| `public/products.js` | Products page logic: price panels, artwork upload, price list tables |
+| `public/pvc-banners.html`, `mesh-banners.html`, `roller-banners.html` | One page per banner type: price per m² badge, calculator and upload panel, popular sizes table, specs |
+| `public/sectors.html`, `how-it-works.html`, `artwork-help.html`, `contact.html` | Info pages linked from the main menu |
+| `public/products.js` | Logic for the products page and the banner pages: price panels, artwork upload, price list and size tables |
+| `public/site.js` | Loaded on every page: mobile menu, Products dropdown, footer year, contact form (opens the email app) |
 | `public/pricing.js` | Price maths shared by both pages (`DEFAULT_PRICING`, `priceBanner`, `gbp`, `pocketMetres`) |
 | `public/styles.css` | All styles for both pages |
 | `public/media/printer/000-140.webp` | 141 frames of the printer video, drawn on a canvas as the page scrolls |
@@ -44,13 +47,13 @@ No dependencies and no build step. Plain HTML, CSS and JavaScript plus one Node 
 ### Brand
 - Colours (CSS variables in `styles.css`): Banner Yellow `#FFE600` (page background), Electric Purple `#6A00FF`, Cobalt Blue `#0027FF`, Soft Neutral `#F6F6F2`, navy ink `#120E6B`. Do not introduce other colours.
 - Typeface: Druk Condensed for everything, via `--display` and `--body`. Anton is the free stand-in until the Druk files are added. No other fonts.
-- Logos are inline SVG symbols at the top of each HTML page: `#fold-n` (the folded N in the BANNERAMA wordmark) and `#b-mark` (the B with a yellow fold). Reuse them with `<svg><use href="#b-mark"/></svg>`. Both pages carry a copy of these symbols, so edit both.
+- Logos are inline SVG symbols at the top of each HTML page: `#fold-n` (the folded N in the BANNERAMA wordmark) and `#b-mark` (the B with a yellow fold). Reuse them with `<svg><use href="#b-mark"/></svg>`. Every page carries a copy of these symbols, so edit them all.
 - Never put a yellow element directly on the yellow page background. Put it inside a purple, navy or white surface.
 - Copy is short, confident and plain British English. Brand lines: "Big banners. Bigger ideas.", "Print banners for a brighter world.", "Same messages. Bigger places."
 
 ### Code style
 - Match the existing code: small functions, `const`/`let`, no semicolon-free style, comments only where the reason isn't obvious.
-- Both pages share the header and footer markup. Change a link in one, check the other.
+- Every page repeats the same header (with the Products dropdown) and footer. Change a link in one, change it in all of them.
 - Keep it responsive. The layout is checked at desktop (1440px) and phone width (about 400px). Respect `prefers-reduced-motion`.
 
 ## Known limits

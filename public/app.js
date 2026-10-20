@@ -326,16 +326,6 @@ $('newOrder').addEventListener('click', () => {
   renderSummary();
 });
 
-const menuBtn = $('menuBtn');
-menuBtn.addEventListener('click', () => {
-  const open = $('navLinks').classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', open);
-  menuBtn.textContent = open ? 'Close' : 'Menu';
-});
-$('navLinks').addEventListener('click', e => {
-  if (e.target.closest('a') && $('navLinks').classList.contains('open')) menuBtn.click();
-});
-
 // Arriving from the products page: ?type=&w=&h=&finishing=&art= prefill the form
 const params = new URLSearchParams(location.search);
 ['type', 'size', 'stand', 'finishing', 'pocketEdges'].forEach(name => {
@@ -375,7 +365,6 @@ async function restoreArtwork(id) {
 }
 
 window.addEventListener('resize', renderSummary);
-$('year').textContent = new Date().getFullYear();
 
 fetch('/api/pricing').then(r => r.ok ? r.json() : null).then(p => {
   if (!p) return;
