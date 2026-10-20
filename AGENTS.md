@@ -18,8 +18,8 @@ No dependencies and no build step. Plain HTML, CSS and JavaScript plus one Node 
 | Path | What it does |
 |---|---|
 | `server.js` | Serves `public/`, receives artwork uploads (`POST /api/artwork`, raw body, `X-Filename` header), returns artwork info and previews (`GET /api/artwork/:id`, `/preview`), prices (`GET /api/pricing`, `POST /api/quote`), saves orders (`POST /api/orders`). **Prices live in `PRICING` here.** |
-| `public/index.html` | Homepage: hero, scroll video, statement, order form (`#order`), sectors, process, callout, artwork guide, contact |
-| `public/app.js` | Homepage logic: order form, live price, artwork upload and checks, URL prefill, mobile menu, scroll video |
+| `public/index.html` | Homepage: hero, statement, order form (`#order`), sectors, process, callout, artwork guide, contact |
+| `public/app.js` | Homepage logic: order form, live price, artwork upload and checks, URL prefill |
 | `public/products.html` | Products page: price list (`#prices`), one section per banner type (`#pvc`, `#mesh`, `#roller`), each with an order panel |
 | `public/pvc-banners.html`, `mesh-banners.html`, `roller-banners.html` | One page per banner type: price per m² badge, calculator and upload panel, popular sizes table, specs |
 | `public/sectors.html`, `how-it-works.html`, `artwork-help.html`, `contact.html` | Info pages linked from the main menu |
@@ -27,7 +27,6 @@ No dependencies and no build step. Plain HTML, CSS and JavaScript plus one Node 
 | `public/site.js` | Loaded on every page: mobile menu, Products dropdown, footer year, contact form (opens the email app) |
 | `public/pricing.js` | Price maths shared by both pages (`DEFAULT_PRICING`, `priceBanner`, `gbp`, `pocketMetres`) |
 | `public/styles.css` | All styles for both pages |
-| `public/media/printer/000-140.webp` | 141 frames of the printer video, drawn on a canvas as the page scrolls |
 | `public/fonts/` | Licensed Druk Condensed web fonts go here (not included yet) |
 | `public/logo-mark.svg` | B mark, used as the favicon |
 | `uploads/`, `data/orders.json` | Created at runtime. Customer data: never commit (already in `.gitignore`) |
