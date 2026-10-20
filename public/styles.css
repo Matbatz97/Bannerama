@@ -97,9 +97,27 @@ button, input, textarea, select { font-family: var(--body); letter-spacing: .02e
 .hero-points li::before { content: ''; display: inline-block; width: .7em; height: .7em; margin-right: .5em; background: var(--yellow); border: 2px solid var(--ink); border-radius: 50%; vertical-align: -.05em; }
 .hero-art { position: relative; }
 .hero-svg { display: block; width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -30px #0027ff88; }
-.sway-a { animation: sway 6s ease-in-out infinite; transform-origin: 150px 78px; }
-.sway-b { animation: sway 7s ease-in-out infinite reverse; transform-origin: 370px 78px; }
-@keyframes sway { 50% { transform: skewX(-1.2deg); } }
+/* Hero banners: unroll on load, then wind gusts push them against the pole */
+.unroll { animation: unroll 1s cubic-bezier(.2, .9, .3, 1.15) both; }
+.unroll-a { transform-origin: 153px 82px; animation-delay: .25s; }
+.unroll-b { transform-origin: 367px 82px; animation-delay: .5s; }
+@keyframes unroll {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.gust { animation: gust 5.5s ease-in-out 1.4s infinite; }
+.gust-a { transform-origin: 234px 278px; }                    /* hinged on the pole side */
+.gust-b { transform-origin: 286px 278px; animation-duration: 6.4s; animation-delay: 2.1s; }
+@keyframes gust {
+  0%, 100% { transform: none; }
+  18% { transform: scaleX(.97) skewY(-1.4deg); }
+  30% { transform: scaleX(1.01) skewY(1deg); }
+  42% { transform: scaleX(.985) skewY(-.6deg); }
+  55% { transform: scaleX(1) skewY(.3deg); }
+  70% { transform: none; }
+}
+.hero-art:hover .gust { animation-duration: 2.2s; }
+.hero-art:hover .gust-b { animation-duration: 2.6s; }
 .hero-badge {
   position: absolute; left: -22px; bottom: 36px; width: 112px; height: 112px; border-radius: 50%;
   background: var(--yellow); color: var(--ink); display: grid; place-items: center; align-content: center;
@@ -533,6 +551,11 @@ input:focus, textarea:focus { outline: none; border-color: var(--purple); backgr
   .scrub-stages li { opacity: 1; display: flex !important; }
   .scrub-hint, .scrub-progress { display: none; }
 }
+@keyframes badge-bob {
+  0%, 100% { transform: rotate(-10deg) translateY(0); }
+  50% { transform: rotate(-4deg) translateY(-8px); }
+}
+.hero-badge { animation: badge-bob 3.2s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }

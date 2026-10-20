@@ -377,6 +377,11 @@ fetch('/api/pricing').then(r => r.ok ? r.json() : null).then(p => {
 
 renderSummary();
 
+// The hero banners' wind uses SVG animation, which CSS can't switch off, so pause it here
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelector('.hero-svg')?.pauseAnimations();
+}
+
 // --- Scroll stopper: draw the printer video frame that matches scroll position ---
 (function scrollScrub() {
   const section = $('scrub');

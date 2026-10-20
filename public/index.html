@@ -88,7 +88,27 @@
           <defs>
             <pattern id="heroPattern" width="64" height="64" patternUnits="userSpaceOnUse">
               <path d="M8 56V28Q8 8 28 8Q48 8 48 28V56Z" fill="#FFE600"/>
+              <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="64 -64" dur="16s" repeatCount="indefinite"/>
             </pattern>
+            <!-- Light and shadow bands that roll across the fabric -->
+            <linearGradient id="rippleA" x1="0" y1="0" x2="70" y2="24" gradientUnits="userSpaceOnUse" spreadMethod="repeat">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".25" stop-color="#fff" stop-opacity=".18"/>
+              <stop offset=".5" stop-color="#000" stop-opacity="0"/>
+              <stop offset=".75" stop-color="#000" stop-opacity=".2"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="-70 -24" dur="2.6s" repeatCount="indefinite"/>
+            </linearGradient>
+            <linearGradient id="rippleB" href="#rippleA" x1="0" y1="0" x2="80" y2="-20">
+              <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="80 -20" dur="3.1s" repeatCount="indefinite"/>
+            </linearGradient>
+            <!-- Gentle wave in the cloth itself -->
+            <filter id="clothWave" x="-4%" y="-2%" width="108%" height="104%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.004 0.02" numOctaves="1" seed="4" result="noise">
+                <animate attributeName="baseFrequency" values="0.004 0.02;0.006 0.026;0.004 0.02" dur="7s" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
           </defs>
           <!-- lamp post -->
           <rect x="246" y="0" width="28" height="560" fill="#c9ccd6"/>
@@ -101,15 +121,16 @@
           <rect x="274" y="74" width="186" height="8" rx="4" fill="#9aa0b4"/>
           <rect x="274" y="474" width="186" height="8" rx="4" fill="#9aa0b4"/>
           <!-- purple banner -->
-          <g class="sway-a">
+          <g class="unroll unroll-a"><g class="gust gust-a"><g filter="url(#clothWave)">
             <rect x="72" y="82" width="162" height="392" fill="#6A00FF"/>
             <text transform="translate(206 366) rotate(-90)" font-family="Druk Condensed, Anton" font-size="84" fill="#FFE600" textLength="262" lengthAdjust="spacingAndGlyphs">BANNERAMA</text>
             <text x="92" y="400" font-family="Druk Condensed, Anton" font-size="21" letter-spacing=".5" fill="#fff">BIG</text>
             <text x="92" y="422" font-family="Druk Condensed, Anton" font-size="21" letter-spacing=".5" fill="#fff">BANNERS.</text>
             <text x="92" y="444" font-family="Druk Condensed, Anton" font-size="21" letter-spacing=".5" fill="#fff">BIGGER IDEAS.</text>
-          </g>
+            <rect x="72" y="82" width="162" height="392" fill="url(#rippleA)"/>
+          </g></g></g>
           <!-- yellow banner -->
-          <g class="sway-b">
+          <g class="unroll unroll-b"><g class="gust gust-b"><g filter="url(#clothWave)">
             <rect x="286" y="82" width="162" height="392" fill="#FFE600"/>
             <path d="M286 230Q380 190 448 120V474H286Z" fill="#6A00FF"/>
             <path d="M286 330Q372 300 448 220Q430 330 448 474H380Q360 380 286 330Z" fill="#FFE600"/>
@@ -118,7 +139,8 @@
             <text x="304" y="156" font-family="Druk Condensed, Anton" font-size="26" fill="#120E6B">PRINTED</text>
             <text x="304" y="184" font-family="Druk Condensed, Anton" font-size="26" fill="#120E6B">BIGGER.</text>
             <rect x="304" y="196" width="22" height="4" fill="#120E6B"/>
-          </g>
+            <rect x="286" y="82" width="162" height="392" fill="url(#rippleB)"/>
+          </g></g></g>
         </svg>
         <div class="hero-badge"><b>48</b><span>hour<br>print</span></div>
       </div>
