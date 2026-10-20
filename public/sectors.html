@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sectors | Bannerama</title>
+  <meta name="description" content="Banners for retail, events, construction, exhibitions, business and outdoor use, printed by Bannerama.">
+  <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Brand shapes, drawn once and reused with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="curlShade" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+      </linearGradient>
+      <!-- The fold N from the primary wordmark: the diagonal peels back to show its yellow underside -->
+      <symbol id="fold-n" viewBox="0 0 50 100">
+        <path fill="currentColor" d="M0 100V13Q0 0 13 0H20V100Z"/>
+        <path fill="currentColor" d="M30 0H50V100H30Z"/>
+        <path fill="currentColor" d="M7 0H21L30 42V52C27 45 24 38 20 32Z"/>
+        <path fill="#000" opacity=".22" d="M30 52C39 63 44 77 41 90C40 95 37 99 33 100H38C43 96 46 88 45 77C44 67 38 58 30 52Z"/>
+        <path style="fill:var(--fold,#FFE600)" d="M20 32C25 42 28 48 30 52C38 64 43 78 40 89C38 96 34 99 31 100C30 80 27 56 20 32Z"/>
+        <path fill="url(#curlShade)" d="M20 32C27 56 30 80 31 100C34 97 36 92 35 84C33 66 28 48 20 32Z"/>
+      </symbol>
+      <!-- The secondary B mark -->
+      <symbol id="b-mark" viewBox="0 0 100 120">
+        <path fill="currentColor" d="M0 0H56C80 0 92 14 92 30C92 45 82 55 67 58C88 59 100 73 100 89C100 107 86 120 64 120H11C5 120 0 115 0 109Z"/>
+        <path style="fill:var(--fold,#FFE600)" d="M0 82C20 71 44 62 67 58C47 68 30 90 24 120H11C5 120 0 115 0 109Z"/>
+        <path fill="url(#curlShade)" d="M67 58C47 68 30 90 24 120H31C36 94 50 72 67 58Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="Bannerama home">BAN<svg class="fold-n" aria-hidden="true"><use href="#fold-n"/></svg>ERAMA<sup>™</sup></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main">
+        <a href="products.html">Products</a>
+        <a href="sectors.html" aria-current="page">Sectors</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="artwork-help.html">Artwork help</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="/#order" class="btn btn-purple btn-sm nav-cta">Get a Quote</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="kicker">Who we print for</p>
+        <h1>Business, events,<br>retail &amp; beyond.</h1>
+        <p class="lede">Every sector needs its banners to do a different job. Here's what works best where, and a head start on your quote.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#retail">Retail</a>
+          <a href="#events">Events</a>
+          <a href="#construction">Construction</a>
+          <a href="#exhibitions">Exhibitions</a>
+          <a href="#business">Business</a>
+          <a href="#outdoor">Outdoor & beyond</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sector-cards">
+        <article class="sector-card" id="retail">
+          <div class="sector-art g-fold" aria-hidden="true"></div>
+          <div class="sector-card-body">
+            <h2>Retail</h2>
+            <p>Shopfront banners for openings, sales and seasonal launches. Bright PVC with eyelets goes up in minutes and comes down just as fast when the promotion ends.</p>
+            <ul class="picks"><li>PVC banner with eyelets</li><li>Popular size: 3 × 1m</li><li>Roller banners for in-store displays</li></ul>
+            <a href="/?type=pvc&w=300&h=100&finishing=eyelets#order" class="btn btn-purple btn-sm">Quote for retail</a>
+          </div>
+        </article>
+        <article class="sector-card" id="events">
+          <div class="sector-art g-flex" aria-hidden="true"></div>
+          <div class="sector-card-body">
+            <h2>Events</h2>
+            <p>Stage backdrops, entrance banners and roller banners that pack into a bag and travel to the next show. Built to be put up and taken down again and again.</p>
+            <ul class="picks"><li>Roller banners, 85 × 200cm</li><li>PVC backdrops in any size</li><li>Hemmed edges for framing systems</li></ul>
+            <a href="/?type=roller#order" class="btn btn-purple btn-sm">Quote for events</a>
+          </div>
+        </article>
+        <article class="sector-card" id="construction">
+          <div class="sector-art g-pattern" aria-hidden="true"></div>
+          <div class="sector-card-body">
+            <h2>Construction</h2>
+            <p>Wind-through mesh for scaffolding and hoardings. Scaffold tube pockets give a tight, flat fit that stays put in exposed spots.</p>
+            <ul class="picks"><li>Mesh banner with scaffold pockets</li><li>Popular size: 6 × 2m</li><li>Site safety and developer branding</li></ul>
+            <a href="/?type=mesh&w=600&h=200&finishing=scaffold#order" class="btn btn-purple btn-sm">Quote for construction</a>
+          </div>
+        </article>
+        <article class="sector-card" id="exhibitions">
+          <div class="sector-art g-type" aria-hidden="true"><span>Ideas<br>printed<br>bigger.</span></div>
+          <div class="sector-card-body">
+            <h2>Exhibitions</h2>
+            <p>Premium roller banners with swivel feet, for stands that need to look sharp from across the hall. Wide formats make a bigger statement at the back of the stand.</p>
+            <ul class="picks"><li>Premium roller banners</li><li>Popular size: 100 × 200cm</li><li>Carry bag included</li></ul>
+            <a href="/?type=roller&size=1000x2000&stand=premium#order" class="btn btn-purple btn-sm">Quote for exhibitions</a>
+          </div>
+        </article>
+        <article class="sector-card" id="business">
+          <div class="sector-art g-bmark" aria-hidden="true"><svg aria-hidden="true"><use href="#b-mark"/></svg></div>
+          <div class="sector-card-body">
+            <h2>Business</h2>
+            <p>Reception displays, recruitment days and office signage. A roller banner in reception or a PVC banner on the building tells people they've found you.</p>
+            <ul class="picks"><li>Roller banners for receptions</li><li>PVC banners for building signage</li><li>Matching sets for every site</li></ul>
+            <a href="/?type=roller#order" class="btn btn-purple btn-sm">Quote for business</a>
+          </div>
+        </article>
+        <article class="sector-card" id="outdoor">
+          <div class="sector-art g-stripes" aria-hidden="true"></div>
+          <div class="sector-card-body">
+            <h2>Outdoor &amp; beyond</h2>
+            <p>Fence banners, pitch-side boards and roadside signs. Weatherproof inks and heavy-duty materials keep colours bright through sun and rain.</p>
+            <ul class="picks"><li>PVC or mesh, depending on wind</li><li>Popular size: 4 × 1m</li><li>Cable ties for quick fitting</li></ul>
+            <a href="/?type=pvc&w=400&h=100#order" class="btn btn-purple btn-sm">Quote for outdoor &amp; beyond</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>Don't see<br>your sector?</h2>
+        <div class="cta-side">
+          <p>We print for everyone. Tell us where your banner is going and we'll recommend the right material, size and fixings.</p>
+          <a class="cta-line" href="tel:08000000000">0800 000 0000</a>
+          <a class="cta-line small" href="mailto:hello@bannerama.co.uk">hello@bannerama.co.uk</a>
+          <a href="/#order" class="btn btn-yellow">Get a Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-mark" aria-hidden="true"><use href="#b-mark"/></svg>
+          <span class="footer-tagline">Bold print<br>for a brighter<br>world.</span>
+        </div>
+        <p>Custom PVC, mesh and roller banners, printed in the UK.</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul><li><a href="/?type=pvc#order">PVC banners</a></li><li><a href="/?type=mesh#order">Mesh banners</a></li><li><a href="/?type=roller#order">Roller banners</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="artwork-help.html">Artwork guide</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="contact.html">Contact us</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:08000000000">0800 000 0000</a></li><li><a href="mailto:hello@bannerama.co.uk">hello@bannerama.co.uk</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span class="wordmark wordmark-sm">BAN<svg class="fold-n" aria-hidden="true"><use href="#fold-n"/></svg>ERAMA</span>
+      <span>© <span id="year"></span> Bannerama. Big banners. Bigger ideas.</span>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

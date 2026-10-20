@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artwork help | Bannerama</title>
+  <meta name="description" content="How to prepare banner artwork for printing: file formats, resolution, safe area and a pre-upload checklist.">
+  <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Brand shapes, drawn once and reused with <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="curlShade" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+      </linearGradient>
+      <!-- The fold N from the primary wordmark: the diagonal peels back to show its yellow underside -->
+      <symbol id="fold-n" viewBox="0 0 50 100">
+        <path fill="currentColor" d="M0 100V13Q0 0 13 0H20V100Z"/>
+        <path fill="currentColor" d="M30 0H50V100H30Z"/>
+        <path fill="currentColor" d="M7 0H21L30 42V52C27 45 24 38 20 32Z"/>
+        <path fill="#000" opacity=".22" d="M30 52C39 63 44 77 41 90C40 95 37 99 33 100H38C43 96 46 88 45 77C44 67 38 58 30 52Z"/>
+        <path style="fill:var(--fold,#FFE600)" d="M20 32C25 42 28 48 30 52C38 64 43 78 40 89C38 96 34 99 31 100C30 80 27 56 20 32Z"/>
+        <path fill="url(#curlShade)" d="M20 32C27 56 30 80 31 100C34 97 36 92 35 84C33 66 28 48 20 32Z"/>
+      </symbol>
+      <!-- The secondary B mark -->
+      <symbol id="b-mark" viewBox="0 0 100 120">
+        <path fill="currentColor" d="M0 0H56C80 0 92 14 92 30C92 45 82 55 67 58C88 59 100 73 100 89C100 107 86 120 64 120H11C5 120 0 115 0 109Z"/>
+        <path style="fill:var(--fold,#FFE600)" d="M0 82C20 71 44 62 67 58C47 68 30 90 24 120H11C5 120 0 115 0 109Z"/>
+        <path fill="url(#curlShade)" d="M67 58C47 68 30 90 24 120H31C36 94 50 72 67 58Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="Bannerama home">BAN<svg class="fold-n" aria-hidden="true"><use href="#fold-n"/></svg>ERAMA<sup>™</sup></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main">
+        <a href="products.html">Products</a>
+        <a href="sectors.html">Sectors</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="artwork-help.html" aria-current="page">Artwork help</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="/#order" class="btn btn-purple btn-sm nav-cta">Get a Quote</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="kicker">Artwork help</p>
+        <h1>Get your file<br>print-ready.</h1>
+        <p class="lede">Everything you need to send artwork that prints sharp and bright. Every order gets a free check anyway, so don't worry if you're not sure.</p>
+        <nav class="jump" aria-label="On this page">
+          <a href="#formats">Formats</a>
+          <a href="#resolution">Resolution</a>
+          <a href="#safe-area">Safe area</a>
+          <a href="#checklist">Checklist</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <div class="section-head">
+        <p class="kicker">The basics</p>
+        <h2>Four things to get right.</h2>
+      </div>
+      <div class="guide-grid">
+        <div><h3>Best formats</h3><p>Print-ready PDF with fonts outlined is best. AI, EPS and SVG work too. For photos, use TIFF or a high-quality JPG.</p></div>
+        <div><h3>Resolution</h3><p>Banners are seen from a distance, so they need fewer pixels than you'd think. See the table below for your banner.</p></div>
+        <div><h3>Safe area</h3><p>Keep text and logos 5cm from every edge. Eyelets, hems and scaffold pockets sit in that border.</p></div>
+        <div><h3>Colour</h3><p>Supply CMYK if you can. RGB is fine, but very bright on-screen colours may print slightly softer.</p></div>
+      </div>
+    </section>
+
+    <section class="section split" id="resolution">
+      <div class="section-head">
+        <p class="kicker">Resolution</p>
+        <h2>How sharp is sharp enough?</h2>
+        <p>Measured at full printed size. The further away people stand, the lower the resolution you need.</p>
+      </div>
+      <div class="price-card">
+        <table class="ptable">
+          <thead><tr><th>Viewed from</th><th>Typical use</th><th>Aim for</th></tr></thead>
+          <tbody>
+            <tr><td>Under 1m</td><td>Roller banners, receptions</td><td><b>150 DPI</b></td></tr>
+            <tr><td>1 to 3m</td><td>Shopfronts, events, fences</td><td><b>100 DPI</b></td></tr>
+            <tr><td>Over 3m</td><td>Scaffolding, roadside, buildings</td><td><b>50 to 72 DPI</b></td></tr>
+          </tbody>
+        </table>
+        <p class="hint">Example: a 3 × 1m banner at 100 DPI needs an image about 11,800 × 3,900 pixels. Vector files (PDF, AI, EPS, SVG) stay sharp at any size.</p>
+      </div>
+    </section>
+
+    <section class="section split" id="safe-area">
+      <div class="section-head">
+        <p class="kicker">Safe area</p>
+        <h2>Leave room at the edges.</h2>
+        <p>Keep anything important inside the dashed line. The outer 5cm is where hems are folded, eyelets are punched and scaffold pockets are sewn.</p>
+      </div>
+      <div class="safe-diagram" aria-label="Diagram: keep text 5cm in from every edge, clear of eyelets">
+        <div class="safe-banner">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="safe-zone"><span>Text and logos here</span></div>
+          <span class="safe-label">5cm</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="checklist">
+      <div class="section-head">
+        <p class="kicker">Before you upload</p>
+        <h2>Quick checklist.</h2>
+      </div>
+      <ul class="checklist">
+        <li>Artwork is the same size as your banner, or the same shape so it scales up</li>
+        <li>Fonts are outlined or embedded</li>
+        <li>Text and logos are at least 5cm from every edge</li>
+        <li>Photos are high resolution for how far away people will stand</li>
+        <li>Colours are CMYK if possible</li>
+        <li>File is PDF, AI, EPS, SVG, TIFF, PNG or JPG, under 250 MB</li>
+      </ul>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>File ready?<br>Let's print it.</h2>
+        <div class="cta-side">
+          <p>Upload your artwork with your order. We'll check it for free and send a proof before anything is printed.</p>
+          <a class="cta-line" href="tel:08000000000">0800 000 0000</a>
+          <a class="cta-line small" href="mailto:hello@bannerama.co.uk">hello@bannerama.co.uk</a>
+          <a href="/#order" class="btn btn-yellow">Get a Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-mark" aria-hidden="true"><use href="#b-mark"/></svg>
+          <span class="footer-tagline">Bold print<br>for a brighter<br>world.</span>
+        </div>
+        <p>Custom PVC, mesh and roller banners, printed in the UK.</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul><li><a href="/?type=pvc#order">PVC banners</a></li><li><a href="/?type=mesh#order">Mesh banners</a></li><li><a href="/?type=roller#order">Roller banners</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="artwork-help.html">Artwork guide</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="contact.html">Contact us</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:08000000000">0800 000 0000</a></li><li><a href="mailto:hello@bannerama.co.uk">hello@bannerama.co.uk</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span class="wordmark wordmark-sm">BAN<svg class="fold-n" aria-hidden="true"><use href="#fold-n"/></svg>ERAMA</span>
+      <span>© <span id="year"></span> Bannerama. Big banners. Bigger ideas.</span>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
